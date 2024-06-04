@@ -1,5 +1,5 @@
 #include <iostream>
-#include <time.h>
+#include <chrono>
 #include<ctime>
 #include <cstdlib>
 #include "QuickSort.cpp"
@@ -26,18 +26,26 @@ int main ()
              
         }
     cout<<"Unsorted Array"<<endl;
-    for (int i = 0; i < size; i++) 
-        {
-           cout<<Array[i]<<endl;
+    // for (int i = 0; i < size; i++) 
+    //     {
+    //        cout<<Array[i]<<endl;
              
-        }
+    //     }
+    auto start = std::chrono::high_resolution_clock::now();
+    
+    QuickSort(Array,0,size-1);
+    
+    auto finish = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = finish - start;
+
+    cout << "QuickSort time: " << elapsed.count() << " s\n";
     cout<<"Sorted Array"<<endl;
     
-    for (int i = 0; i < size; i++) 
-        {
-           cout<<Array[i]<<endl;
+    // for (int i = 0; i < size; i++) 
+    //     {
+    //        cout<<Array[i]<<endl;
              
-        }
+    //     }
     
 
     return 0;

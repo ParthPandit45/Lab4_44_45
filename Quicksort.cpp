@@ -1,14 +1,10 @@
 #include<iostream>
 using namespace std;
-void QuickSort(int arr[], int left, int right) 
+void swap(int &a, int &b)
 {
-    if (left <right)
-    {
-        int pivot = Partition(arr, left, right);
-        QuickSort(arr, left, pivot - 1);
-        QuickSort(arr, pivot + 1, right);
-
-    }
+    int temp=a;
+    a=b;
+    b=temp;
 }
 int Partition(int arr[], int left, int right) 
 {
@@ -33,9 +29,14 @@ int Partition(int arr[], int left, int right)
     swap(arr[left],arr[j]);
     return j;  
 }
-void swap(int &a, int &b)
+
+void QuickSort(int arr[], int left, int right) 
 {
-    int temp=a;
-    a=b;
-    b=temp;
+    if (left <right)
+    {
+        int pivot = Partition(arr, left, right);
+        QuickSort(arr, left, pivot - 1);
+        QuickSort(arr, pivot + 1, right);
+
+    }
 }
