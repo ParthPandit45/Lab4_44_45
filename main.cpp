@@ -25,13 +25,14 @@ int main ()
             Array[i]=rand();
              
         }
-        auto start = std::chrono::steady_clock::now();
+    cout<<"Unsorted Array"<<endl;
     for (int i = 0; i < size; i++) 
         {
            cout<<Array[i]<<endl;
              
         }
-    quickSort(Array,0,size-1);
+    cout<<"Sorted Array"<<endl;
+    
     for (int i = 0; i < size; i++) 
         {
            cout<<Array[i]<<endl;
