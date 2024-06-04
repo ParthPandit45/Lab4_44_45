@@ -1,9 +1,8 @@
 #include <iostream>
-#include <chrono>
-#include<ctime>
-#include <cstdlib>
+#include <chrono>//for execution time
+#include<ctime>//for time(0) function
+#include <cstdlib>//for rand() function
 #include "QuickSort.cpp"
-
 
 using namespace std;
 int main ()
@@ -25,7 +24,12 @@ int main ()
             Array[i]=rand();
              
         }
-    cout<<"Unsorted Array"<<endl;
+    // cout<<"For worst case"<<endl;
+    // for (i=9999;i>=0;i--)
+    // {
+    //     Array[i]=i;
+    // }
+    // cout<<"Unsorted Array"<<endl;
     // for (int i = 0; i < size; i++) 
     //     {
     //        cout<<Array[i]<<endl;
@@ -39,7 +43,7 @@ int main ()
     std::chrono::duration<double> elapsed = finish - start;
 
     cout << "QuickSort time: " << elapsed.count() << " s\n";
-    cout<<"Sorted Array"<<endl;
+    // cout<<"Sorted Array"<<endl;
     
     // for (int i = 0; i < size; i++) 
     //     {
