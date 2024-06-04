@@ -1,35 +1,41 @@
-#include <iostream>
+#include<iostream>
+using namespace std;
+void QuickSort(int arr[], int left, int right) 
+{
+    if (left <right)
+    {
+        int pivot = Partition(arr, left, right);
+        QuickSort(arr, left, pivot - 1);
+        QuickSort(arr, pivot + 1, right);
 
-
-void swap(int arr[], int index1, int index2) {
-    int temp = arr[index1];
-    arr[index1] = arr[index2];
-    arr[index2] = temp;
+    }
 }
-
-int partition(int arr[], int low, int high) {
-    int pivot = arr[low];  // Pivot is chosen as the last element
-    int i = low + 1;  // Index of smaller element
-
-    for (int j = low; j < high; j++) {
-        // If current element is smaller than or equal to pivot
-        if (arr[j] <= pivot) {
-            swap(arr, i, j);  // Swap arr[i] and arr[j]
-            i++;    // Increment index of smaller element
+int Partition(int arr[], int left, int right) 
+{
+    int pi=arr[left];
+    int i=left;
+    int j=right+1;
+    while (i<j)
+    {
+        do
+        {
+            i++;
+        } while (arr[i]<=pi);
+        do
+        {
+            j--;
+        } while (arr[j]>pi);
+        if (i<j)
+        {
+            swap(arr[i],arr[j]);
         }
     }
-    swap(arr, low, i - 1);  // Swap pivot with the last smaller element
-    return i - 1;  // Return the partitioning index
+    swap(arr[left],arr[j]);
+    return j;  
 }
-
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
-        // Partitioning index
-        int pi = partition(arr, low, high);
-
-        // Separately sort elements before and after partition
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
+void swap(int &a, int &b)
+{
+    int temp=a;
+    a=b;
+    b=temp;
 }
-
