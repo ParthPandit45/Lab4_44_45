@@ -12,18 +12,7 @@ int main ()
 
     int size=0;
      srand(time(0)); 
-     cout<<"Enter the size of the array:\t";
-     cin>>size;
-     int Array[size];
-
     
-
-  
-    for (int i = 0; i < size; i++) 
-        {
-            Array[i]=rand();
-             
-        }
     // cout<<"For worst case"<<endl;
     // for (i=9999;i>=0;i--)
     // {
@@ -35,14 +24,27 @@ int main ()
     //        cout<<Array[i]<<endl;
              
     //     }
-    auto start = std::chrono::high_resolution_clock::now();
-    
-    QuickSort(Array,0,size-1);
-    
-    auto finish = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = finish - start;
 
-    cout << "QuickSort time: " << elapsed.count() << " s\n";
+    
+
+  for (size=10000;size<=95000;size+=5000)
+    {
+        int Array[size];
+        for (int i = 0; i < size; i++) 
+        {
+            Array[i]=rand();
+             
+        }
+        auto start = std::chrono::high_resolution_clock::now();
+    
+        QuickSort(Array,0,size-1);
+    
+        auto finish = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = finish - start;
+
+        cout << "QuickSort time for size "<<size<<" : " << elapsed.count() << " s\n";
+    }
+    
     // cout<<"Sorted Array"<<endl;
     
     // for (int i = 0; i < size; i++) 
