@@ -11,21 +11,7 @@ int main ()
 
 
     int size=0;
-     srand(time(0)); 
-    
-    // cout<<"For worst case"<<endl;
-    // for (i=9999;i>=0;i--)
-    // {
-    //     Array[i]=i;
-    // }
-    // cout<<"Unsorted Array"<<endl;
-    // for (int i = 0; i < size; i++) 
-    //     {
-    //        cout<<Array[i]<<endl;
-             
-    //     }
-
-    
+     srand(time(0)); //seed for random number generator
 
   for (size=10000;size<=95000;size+=5000)
     {
@@ -43,18 +29,10 @@ int main ()
         std::chrono::duration<double> elapsed = finish - start;
 
         cout << "QuickSort time for size "<<size<<" : " << elapsed.count() << " s\n";
+       
+
+    
+
     }
-    
-    // cout<<"Sorted Array"<<endl;
-    
-    // for (int i = 0; i < size; i++) 
-    //     {
-    //        cout<<Array[i]<<endl;
-             
-    //     }
-    
-
     return 0;
-
 }
-
